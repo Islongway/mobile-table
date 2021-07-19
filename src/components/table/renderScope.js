@@ -9,7 +9,7 @@ export const RenderScope = {
     return <div>{title}</div>;
   },
 };
-
+//节流
 export function throttle(func, wait) {
   let timeout;
   return function() {
@@ -22,4 +22,15 @@ export function throttle(func, wait) {
       }, wait);
     }
   };
+}
+//深拷贝
+export function deepClone(obj) {
+  var newobj = obj.constructor === Array ? [] : {};
+  if (typeof obj !== 'object') {
+    return;
+  }
+  for (var i in obj) {
+    newobj[i] = typeof obj[i] === 'object' ? deepClone(obj[i]) : obj[i];
+  }
+  return newobj;
 }

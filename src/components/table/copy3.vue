@@ -3,7 +3,7 @@
  * @Autor: islongwayzzm
  * @Date: 2021-07-15 14:39:56
  * @LastEditors: islongwayzzm
- * @LastEditTime: 2021-07-19 15:02:00
+ * @LastEditTime: 2021-07-19 14:19:40
 -->
 
 <script>
@@ -41,7 +41,6 @@ export default {
       allCheck: false,
       firstCheck: true,
       exist: {},
-      sliceTable: [],
       zftable: this.tableData.map((val) => {
         val.checked = this.allCheck;
         return val;
@@ -180,36 +179,25 @@ export default {
     window.addEventListener('resize', throttle(resizeRem, 500));
   },
   mounted() {
-    const box = document.getElementsByClassName('JMtable')[0];
-    let lastMax = 0;
-    const rtlength = this.retTableData.length;
-    const dpRetTable = deepClone(this.retTableData);
-    this.sliceTable = dpRetTable.slice(0, rtlength > 20 ? 20 : rtlength - 1);
-    console.log('dff', this.sliceTable);
-    let maxTop = 0;
-    box.addEventListener('scroll', (a) => {
-      // console.log('ddd', a.target);
-      // const { clientHeight, scrollHeight, scrollTop } = a.target;
-      const { scrollTop } = a.target;
-      if (maxTop <= scrollTop) {
-        maxTop = scrollTop;
-      }
-      if (
-        maxTop <= scrollTop &&
-        this.sliceTable.length < rtlength &&
-        scrollTop - lastMax >= 200
-      ) {
-        const stlength =
-          this.sliceTable.length + 20 > rtlength
-            ? rtlength - 1
-            : this.sliceTable.length + 20;
-        this.sliceTable = this.sliceTable.concat(
-          dpRetTable.slice(this.sliceTable.length, stlength)
-        );
-        console.log('触发', this.sliceTable);
-        lastMax = lastMax + 200;
-      }
-    });
+    // const box = document.getElementsByClassName('JMtable')[0];
+    // let lastMax = 0;
+    // box.addEventListener('scroll', (a) => {
+    //   // console.log('ddd', a.target);
+    //   const { clientHeight, scrollHeight, scrollTop } = a.target;
+    //   console.log('ddff', clientHeight, scrollHeight, scrollTop);
+    //   if (scrollTop - lastMax >= 250) {
+    //     console.log('触发');
+    //     lastMax = lastMax + 500;
+    //   }
+    // });
+    // setInterval(() => {
+    //   const {
+    //     clientHeight,
+    //     scrollHeight,
+    //     scrollTop,
+    //   } = document.getElementsByClassName('JMtable')[0];
+    //   console.log('ddff', clientHeight, scrollHeight, scrollTop);
+    // }, 10000);
   },
   render() {
     const _this = this;
@@ -254,7 +242,7 @@ export default {
                 );
               })}
             </tr>
-            {_this.sliceTable.map((item, index) => {
+            {_this.retTableData.map((item, index) => {
               return (
                 <tr class={'JMtable-table_tr'} key={index}>
                   {this.check ? (
