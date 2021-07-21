@@ -3,7 +3,7 @@
  * @Autor: islongwayzzm
  * @Date: 2021-07-15 14:24:34
  * @LastEditors: islongwayzzm
- * @LastEditTime: 2021-07-19 14:57:37
+ * @LastEditTime: 2021-07-21 10:19:06
 -->
 <template>
   <div id="app">
@@ -32,9 +32,9 @@ export default {
         {
           title: 'Header1',
           dataIndex: 'name',
-          fixed: 'left',
+          fixed: 'left', //固定
           width: 150,
-          align: 'left',
+          align: 'left', //字体位置
           customRender: (h, text, record, index, index2) => {
             // console.log(text, record, index, index2, h);
             return (
@@ -79,80 +79,6 @@ export default {
           align: 'right',
         },
       ],
-      tableData: [
-        {
-          name: '测试dd',
-          name2: '1222',
-          name3: '333',
-          name4: '测试dd',
-          name5: '1222',
-          name6: '333',
-        },
-        {
-          name: '1111',
-          name2: '1222',
-          name3: '333',
-          name4: '1111',
-          name5: '测试dd',
-          name6: '333',
-        },
-        {
-          name: '1111',
-          name2: '测试dd',
-          name3: '333',
-          name4: '1111',
-          name5: '1222',
-          name6: '333',
-        },
-        {
-          name: '1111',
-          name2: '1222',
-          name3: '333',
-          name4: '1111',
-          name5: '1222',
-          name6: '333',
-        },
-        {
-          name: '测试dd',
-          name2: '1222',
-          name3: '测试dd',
-          name4: '测试dd',
-          name5: '1222',
-          name6: '333',
-        },
-        {
-          name: '1111',
-          name2: '1222',
-          name3: '333',
-          name4: '1111',
-          name5: '1222',
-          name6: '333',
-        },
-        {
-          name: '1111',
-          name2: '1222',
-          name3: '333',
-          name4: '1111',
-          name5: '1222',
-          name6: '333',
-        },
-        {
-          name: '1111',
-          name2: '1222',
-          name3: '333',
-          name4: '1111',
-          name5: '1222',
-          name6: '333',
-        },
-        {
-          name: '1111',
-          name2: '1222',
-          name3: '333',
-          name4: '1111',
-          name5: '1222',
-          name6: '333',
-        },
-      ],
       ctableData: [],
     };
   },
@@ -168,7 +94,6 @@ export default {
   },
   created() {
     for (let i = 0; i < 1000; i++) {
-      // this.ctableData = this.ctableData.concat(deepClone(this.tableData));
       this.ctableData.push({
         name: `1-${i}`,
         name2: `2-${i}`,
@@ -178,7 +103,6 @@ export default {
         name6: `6-${i}`,
       });
     }
-    console.log('ff', this.ctableData.length);
   },
 };
 </script>
